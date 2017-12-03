@@ -17,6 +17,7 @@
 #include "BaseVideoNodeTile.h"
 #include "View.h"
 #include "Paths.h"
+#include "Blat.h"
 #include "main.h"
 
 #ifdef USE_RTMIDI
@@ -37,6 +38,7 @@ QSharedPointer<QSettings> outputSettings;
 QSharedPointer<Audio> audio;
 QSharedPointer<NodeRegistry> nodeRegistry;
 QSharedPointer<Timebase> timebase;
+QSharedPointer<Blat> blat;
 
 QObject *audioProvider(QQmlEngine *engine, QJSEngine *scriptEngine) {
     Q_UNUSED(engine)
@@ -82,6 +84,7 @@ int main(int argc, char *argv[]) {
     outputSettings = QSharedPointer<QSettings>(new QSettings(QSettings::IniFormat, QSettings::UserScope, "Radiance", "Radiance Output"));
     timebase = QSharedPointer<Timebase>(new Timebase());
     audio = QSharedPointer<Audio>(new Audio());
+    blat = QSharedPointer<Blat>(new Blat());
 
     nodeRegistry = QSharedPointer<NodeRegistry>(new NodeRegistry());
 #ifndef USE_MPV

@@ -60,6 +60,7 @@ list(APPEND libradiance_SOURCES
     src/Controls.cpp
     src/BaseVideoNodeTile.cpp
     src/Paths.cpp
+    src/Blat.cpp
     BTrack/src/BTrack.c
     BTrack/src/OnsetDetectionFunction.c
     )
